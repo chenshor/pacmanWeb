@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<script src="./jquery-3.4.1.slim.min.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="./app.js"></script>
+		<script type="text/javascript" src="./signIn.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+	</head>
+
+	<body>
+		<header class="header">
+			
+			<div id="headerDeatails">
+				Created by: Or Shoshani & Chen Shoresh
+				
+			</div>
+			<img id="logoHeader" src="images/logo4.png"  width="60px" height="60px" />
+		</header>
+		<div class="toolBar" id="toolBar" >
+		<ul>	
+			<img id="logo" src="images/logo4.png"  width="60px" height="60px" />
+			<li><a href="#" onclick="welcome()">Welcome</a></li>
+			<li><a href="#" onclick="register()">Register</a></li>
+			<li><a href="#" onclick="logIn()">Log In</a></li>
+			<li><a href="#" onclick="openDialog()">About</a></li>
+		  </ul>
+		</div>
+
+		<div class="container" id="windows">
+		<div class="openWindow" id="open">
+		
+			<div id="mainPage">Corona</div>	
+			<div class="flex-container">
+			<button class="openButton" onclick="register()" id="register" >Register</button>
+			<button class="openButton" onclick="logIn()" id="login">Login</button>
+			</div>
+		</div>
+		<div id="registerPage" >
+			<form class="regWindow"  name="formR" id="formR">
+				<div class="boxR">
+				  <h1 id="regPage">Register</h1>
+				  <p >Please fill in this form to create an account.</p>
+				
+				  <hr >
+				  <label for="name"><b>Full Name</b></label>
+				  <input type="text" placeholder="Name" name="name" id="name" >
+				
+				  <label for="userName"><b>User Name</b></label>
+				  <input type="text" id="userName" placeholder="UserName" name="userName" value="" >
+
+				  <label for="email"><b>Email</b></label>
+				  <input type="text" placeholder="Email" name="email" >
+
+				<label for="birthday"><b>Birthday</b></label>
+				<input type="date" placeholder="Birthday" name="birthday">
+				
+				  <label for="psw"><b>Password</b></label>
+				  <input type="password" placeholder="*************" name="psw" id="psw" value="">
+			  
+				  <label for="psw-repeat"><b>Repeat Password</b></label>
+				  <input type="password" placeholder="*************" name="psw_repeat" >
+				  <hr>
+			
+				  <p><a href="#" ></a></p>
+				  <button type="submit" class="registerbtn" onclick="checkInput()" >Register</button>
+				  <p id="signinLink">Already have an account? <a href="#" onclick="logIn()">Sign in</a>.</p>
+				  
+				</div>
+				</form>
+			  
+			
+		</div>
+		<div id="loginPage">
+			<form class="logWindow" name="logR" id="logR">
+				<div class="box">
+				  <h1 id="logPage">Log In</h1>
+				  <p >Please enter your user name and password to log in.</p>
+				  <hr>
+				  <label for="userName2"><b>User Name</b></label>
+				  <input type="text" id="userName2" placeholder="UserName" name="userName2" >
+
+				  <label for="psw2"><b>Password</b></label>
+				  <input type="password" placeholder="*************" name="psw2" id="psw2" >
+				
+				  <button type="submit" class="loginbtn" onclick="checkUser()" >Log in</button>
+				  <p id="signinLink">Don't have an account? <a href="#" onclick="register()">Register</a>.</p>
+				
+				</div>
+			  </form>
+		</div>
+		<div id="gameC">
+		<div class="gameWindow" id="game">
+			<canvas id="canvas" height="475" width="840"></canvas>
+		
+			<div id="details">
+			
+			<div id="zero">
+			<label class="detail" for="playerName" >USER NAME:</label>
+			<input class="detail" id="playerName" type="text" >
+			
+		</div> 
+		<div id="first">
+			<label class="detail" for="lblTime">TIME:</label>
+			<input class="detail" id="lblTime" type="text" />
+			<label class="detail"for="lblScore">SCORE:</label>
+			<input id="lblScore"class="detail"  type="text" >
+			
+			<label class="detail" for="lives">LIVES:</label>
+			<input id="lives" class="detail"  type="text" >
+			</div>
+			
+			<div id="second">
+			<label class="detail" for="monster">MONSTERS:</label>
+			<input id="monster" class="detail"  type="text" >
+			<label class="detail" for="numFood">TOTAL FOOD:</label>
+			<input id="numFood" class="detail"  type="text" >
+		</div>
+		<div id="theird">
+			<label class="long" for="highP">25 POINTS:</label>
+			<input id="highP" class="long" type="text">
+			<label class="long" for="mediumP">15 POINTS:</label>
+			<input id="mediumP" class="long"  type="text" >
+			<label class="long" for="lowP">5 POINTS:</label>
+			<input id="lowP" class="long"  type="text" >
+		</div>
+			<div id="gameKey"> 
+			<img src="images/up.png" width="30px" height="30px">
+			<input id="upButton" class="long"  type="text" >
+			<img src="images/down.png" width="30px" height="30px">
+			<input id="downButton" class="long"  type="text" ></br>
+			<img src="images/left.png" width="30px" height="30px">
+			<input id="leftButton" class="long"  type="text" >
+			<img src="images/right.png" width="30px" height="30px">
+			<input id="rightButton" class="long"  type="text" >
+		</div>
+		<div id="gamebtn">
+			<button id="restart" class="detail"  onclick="setVariables()">RESTART</button>
+			<button id="backToSettings" class="detail"  onclick="set()">SETTINGS</button>	
+		</div>
+		</div>
+		</div>
+		<div id=dialogGame>
+			<dialog id="timeout" >
+				<p id="timeDialog"></p>
+				<button id="playAgain1" onclick="game()">Play Again</button>
+				<button id="home1" onclick="welcome()">Home Page</button>
+			</dialog>
+			<dialog id="win" >
+				<p>winner!!</p>
+				<button id="playAgain2" onclick="game()">Play Again</button>
+				<button id="home2" onclick="welcome()">Home Page</button>
+			</dialog>
+			<dialog id="loser" >
+				<p>loser!!</p>
+				<button id="playAgain3" onclick="game()">Play Again</button>
+				<button id="home3" onclick="welcome()">Home Page</button>
+			</dialog>
+		</div>
+	</div>
+
+		<dialog class="modelBox" id="modelBox">
+		<div class="modal" id="myModal">
+			<span class="close" onclick="closeDialog()">&times;</span>
+			This game was designed by: Chen Shoresh and Or Shoshani
+		</br>
+	</br>
+			We use a jQuery Plugin to validate the Register,Log-in and settings forms.
+		</br>
+	</br>
+			We had some troubles delivering arguments to the "addNewMethod" in the validate functions.
+		</br>
+	</br>
+			In addition, it took us some time to figure out how to change the game's keyboard.
+		</br>
+	</br>
+			At last, we succeeded and had fun while doing it.
+			
+		</div>
+		</dialog>
+
+
+<div id="settings" class="settings">
+	<div class="boxS" id="setBox">
+	<form class="settingForm" name="settingForm" id="settingForm">
+		
+		  <h1 id="setPage">Settings</h1>
+		  <p >Please enter your settings game</p>
+		  <hr>
+		  
+		  <div class="box_keybtn">
+		  <img for="up" src="images/up.png" sizes="10%">
+		  <input type="button" class="keyBtn" id="up" name="up" value="up">
+
+		  <img for="down" src="images/down.png">
+		  <input type="button" class="keyBtn" name="down" id="down" value="down" >
+
+		  <img for="left" src="images/left.png">
+		  <input type="button" class="keyBtn" name="left" id="left" value="left">
+
+		  <img for="right" src="images/right.png">
+		  <input type="button" class="keyBtn" name="right" id="right" value="right" >
+		</div>
+		<p id="keyMassege">Press new key..</p>
+		
+		  <label class="btnN" for="food"><b>Number of food:</b>
+			<input type="number" min="50" max="90" name="food" id="food" >
+		</label>
+	</br>
+		  <label class="btnN" for="gameT"><b>Game's length:</b>
+			<input type="number" min="60"  name="gameT" id="gameT" >
+		</label>
+	</br>
+		<label class="btnN" for="monsterNum"><b>Number of monsters:</b>
+			<input type="number" min="1"  max="4" name="monsterNum" id="monsterNum" >
+		</label>
+	</br>
+	  <div id="ballS">
+		  <label class="balls" for="cars">Pick a color for the 5 p' food:</label>
+			<select id="mainC">
+			<option value="CornflowerBlue">blue</option>
+			<option value="Aquamarine">green</option>
+			<option value="DarkGray">gray</option>
+			</select>
+		</br>
+			<label class="balls" for="cars">Pick a color for the 15 p' food:</label>
+			<select id="middleC" >
+			<option value="HotPink">pink</option>
+			<option value="Tomato">red</option>
+			<option value="Coral">orange</option>
+			
+			</select>
+		</br>
+			<label class="balls" for="cars">Pick a color for the 25 p' food:</label>
+			<select id="lowC" >
+			<option value="LightGray">light gray</option>
+			<option value="Black">black</option>
+			<option value="Silver">silver</option>
+			</select>
+		</br>
+	</div>
+		<div id="btnS">
+		  <button type="submit" class="play" onclick="checkSetting()" >Play</button>
+		  <input type="button" class="randomSet" onclick="randomSettings()" value="Random" ></input>
+		</div>
+	  </form>
+	  
+	</div>
+		</div>
+	</div>
+	<footer >
+		Created by: Or Shoshani & Chen Shoresh 
+		<br>
+		Contact information: <a href="mailto:chenshoresh95@post.bgu.ac.il">chenshoresh95@post.bgu.ac.il</a>
+	 </footer>
+	
+	
+
+	<script type="text/javascript">
+		
+var modal = document.getElementById("modelBox");
+window.onclick = function(event) {
+  if (event.target == modal ) {
+    $("#modelBox").css("display","none");
+  }
+}
+$(window).keyup(function(event){
+	if(event.keyCode===27){
+		$("#modelBox").css("display","none");
+	}
+});
+
+	</script>
+
+
+
+	</body>
+</html>
